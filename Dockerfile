@@ -5,5 +5,4 @@ COPY . /alpha
  
 RUN pip install -r requirements.txt
  
-ENTRYPOINT ["python"]
-CMD ["-m", "alpha"]
+CMD ["bash", "run.sh"]
