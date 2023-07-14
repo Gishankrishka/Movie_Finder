@@ -7,55 +7,25 @@ import importlib
 from alpha.__version__ import __version__, __copyright__
 
 
-def import_plugins():
-    mypath = 'alpha/plugins'
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    plugins = []
-
-    for file in onlyfiles:
-        if file.endswith('.py'):
-            plugin_name = file.split('.')[0]
-            module_path = f'alpha.plugins.{plugin_name}'
-            try:
-                plugin_module = importlib.import_module(module_path)
-                plugins.append(plugin_module)
-                print(f"Imported plugin: {plugin_name}")
-            except Exception as e:
-                print(f"Failed to import plugin: {plugin_name}")
-                print(f"Error: {e}")
-
-    return plugins
-
+mypath = 'alpha/plugins'
+onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+Files = []
+for file in onlyfiles:
+	if file.split('.')[-1] == 'py':
+		Files.append(file)
+	else:
+		pass
+Imported = []
+for file in Files:
+    Imported.append(importlib.import_module(
+    	'alpha.plugins.{}'.format(file.split('.')[0])))
 
 async def log():
     if LOG_CHNL:
-        try:
-            await pbot.send_message(LOG_CHNL, BOT_STARTED.format(__version__, __copyright__))
-            print("Log message sent successfully.")
-        except Exception as e:
-            print(f"Failed to send log message: {e}")
+       await pbot.send_message(LOG_CHNL, BOT_STARTED.format(__version__, __copyright__))
 
-
-def start_bots():
-    try:
-        pbot.start()
-        pbot.loop.run_until_complete(log())
-        print("pbot started successfully.")
-    except Exception as e:
-        print(f"Failed to start pbot: {e}")
-
-    try:
-        tbot.start(bot_token=BOT_TOKEN)
-        print("tbot started successfully.")
-    except Exception as e:
-        print(f"Failed to start tbot: {e}")
-
-
-if __name__ == "__main__":
-    plugins = import_plugins()
-
-    
-    start_bots()
-
-
-    idle()
+pbot.start()
+pbot.run(log())
+tbot.start(bot_token=BOT_TOKEN)
+print(BOT_STARTED.format(__version__, __copyright__))
+idle()
