@@ -29,4 +29,4 @@ cachetools==5.1.0
 speedtest-cli
 wget
 IMDbPY
-pyenchant
+enchant
