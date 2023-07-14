@@ -54,9 +54,8 @@ def start_bots():
 if __name__ == "__main__":
     plugins = import_plugins()
 
-    try:
-        start_bots()
-    except KeyboardInterrupt:
-        pass
+    
+    start_bots()
+
 
     idle()
