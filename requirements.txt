@@ -28,5 +28,3 @@ pyyaml==5.4
 cachetools==5.1.0
 speedtest-cli
 wget
-IMDbPY
-enchant
