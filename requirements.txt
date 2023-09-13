@@ -29,4 +29,4 @@ speedtest-cli
 wget
 IMDbPY
 pyenchant
-regex=2021.8.27
+regex
