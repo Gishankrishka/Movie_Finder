@@ -21,7 +21,7 @@ pytz==2022.1
 dateparser==1.1.1
 gpytranslate==1.4.0
 EmojiCaptcha==0.1.2
-captcha==0.4 
+captcha==0.4
 googletrans==3.1.0a0
 telegraph==2.1.0
 pyyaml==5.4
