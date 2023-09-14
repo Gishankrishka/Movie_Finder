@@ -7,4 +7,5 @@ pyromod==1.5
 telegraph==2.1.0
 Telethon==1.28.5
 wget==3.2
+nltk
 TgCrypto
