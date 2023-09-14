@@ -154,20 +154,27 @@ async def mention_html(name: str, user_id: int) -> str:
 async def mention_markdown(name: str, user_id: int) -> str:
     return f"[{(await escape_markdown(name))}](tg://user?id={user_id})"
   
-import enchant
+
+import nltk
+
+# Download NLTK data (if you haven't already)
+nltk.download('words')
+
+from nltk.corpus import words
+
+# Get a list of English words
+english_words = set(words.words())
 
 def suggest_similar_word(user_input):
-    english_dict = enchant.Dict("en_US")
-    if english_dict.check(user_input):
-        return 
-    suggestions = english_dict.suggest(user_input)
+    user_input = user_input.lower()  # Convert user input to lowercase for case-insensitive matching
+    if user_input in english_words:
+        return
+    suggestions = [word for word in english_words if word.startswith(user_input)]
     if suggestions:
-        suggestion = suggestions[0]  
-        reply = f"Did you mean '`{suggestion}`'?"
+        suggestion = suggestions[0]
+        reply = f"Did you mean '{suggestion}'?"
     else:
         reply = False
-        
-
     return reply
 
 
