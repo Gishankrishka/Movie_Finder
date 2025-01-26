@@ -8,7 +8,7 @@
 ```sh
 # Install Git First (apt-instll git)
 $ git clone https://github.com/Gishankrishka/Movie_Finder/
-$ cd MissRaya
+$ cd Movie_Finder
 # Install All Requirements 
 $ pip3 install -r requirements.txt
 # Add Your Details to ./Movie_Finder/vars.py
