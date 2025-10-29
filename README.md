@@ -31,7 +31,7 @@ $ python3 -m alpha
 
 [+] Go to console.firebase.google.com & Go to Your Project & Go to Project Settings & Go to Service Accounts & Click on <b>Generate New Private Key</b> & It will Download your Database Credentials File & Then rename it to Database.json & Put it on main directory on MissRaya. MissRaya won't work if you don't put it correctly.
 
-[+] You Must Need To Create Some Keys on Firebase Realtime Database. It's on down below pitcure👇
+[+] You Must Need To Create Some Keys on Firebase Realtime Database. It's on down below pitcure�
 <p align="center">
   <img src="https://user-images.githubusercontent.com/90763454/169789605-70b386ca-ebe6-4aa2-a2b2-d01b5120f1e5.png"> 
 </p>
@@ -46,4 +46,5 @@ $ python3 -m alpha
 
 # Contributors
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=Gishankrishka/Movie_Finder/))
+
 
