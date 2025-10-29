@@ -228,45 +228,7 @@ async def RemSAdmin(UserName: str, ID: int):
         msg = '💥 Remove Admin From Database 💥\n🌴 UsᴇʀNᴀᴍᴇ : {}\n🌴 ID : {}'.format('@{}'.format(UserName) if UserName != None else 'None', ID)
         await tbot.send_message(LogChannel, msg)
 
-async def ALLCast(from_chat_id, message_id, first_name, sender_id, forward=True):
-    Groups = GetGrps()
-    Users = GetUsers()
-    await pbot.send_message(from_chat_id, f'🌴 BROΔDCΔSΓ SΓΔRΓED...! 🌹\n🌾 Sending This Post To **{len(Users)}** Users....🌻\n🌾 Sending This Post To **{len(Groups)}** Groups....🌻')
-    SentGrp = 0
-    SentUsr = 0
-    for key in Users:
-        try:
-            if forward:
-                await pbot.forward_messages(chat_id=int(key), from_chat_id=from_chat_id, message_ids=message_id)
-            else:
-                await pbot.copy_message(chat_id=int(key), from_chat_id=from_chat_id, message_id=message_id)
-            SentUsr += 1
-        except InputUserDeactivated:
-            RemUser(int(key))
-        except UserIsBlocked:
-            RemUser(int(key))
-        except PeerIdInvalid:
-            RemUser(int(key))
-        except Exception:
-            await SendLog(traceback.format_exc(), first_name, sender_id, from_chat_id)
-    for key in Groups:
-        try:
-            if forward:
-                await pbot.forward_messages(chat_id=int(key), from_chat_id=from_chat_id, message_ids=message_id)
-            else:
-                await pbot.copy_message(chat_id=int(key), from_chat_id=from_chat_id, message_id=message_id)
-            SentGrp += 1
-        except InputUserDeactivated:
-            RemUser(int(key))
-        except UserIsBlocked:
-            RemUser(int(key))
-        except PeerIdInvalid:
-            RemUser(int(key))
-        except Exception:
-            pass
-    await pbot.send_message(from_chat_id, f'🌻 𝔖𝔢𝔫𝔡𝔦𝔫𝔤 𝔬𝔣 𝔱𝔥𝔢 𝔟𝔯𝔬𝔞𝔡𝔠𝔞𝔰𝔱 𝔭𝔬𝔰𝔱 𝔦𝔰 𝔰𝔲𝔠𝔠𝔢𝔰𝔰𝔣𝔲𝔩𝔩𝔶 𝔠𝔬𝔪𝔭𝔩𝔢𝔱𝔢𝔡! 🌺\nSent To ⚡️ {SentUsr} ⚡️ Users....🌷\nSent To ⚡️ {SentGrp} ⚡️ Groups....🌷')
-
-
+    
 async def SendLog(log, fname, id, chat):
     await tbot.send_message(LogChannel, f'🌷 Bot Crashed 🍇\n\nTo User ⚡️ [{fname}](tg://user?id={id})\nIn Chat ⚡️ `{chat}`\nError Log 🌴```{log}```')
 
